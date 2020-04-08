@@ -9,8 +9,8 @@ to_index(const uint32_t u,
     const uint32_t v, 
     const uint32_t sz_u)
 {
-    return v * sz_u
-        + u;
+	return static_cast<size_t>(v) * static_cast<size_t>(sz_u)
+	     + static_cast<size_t>(u);
 }
 
 static
