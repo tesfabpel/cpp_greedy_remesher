@@ -41,8 +41,8 @@ greedy_remesher(const glm::uvec3 &dims,
 		std::vector<bool> mask(dims[tan] * dims[biTan]);
 
 		// Move through the volume in 2D 'slices' perpendicular to the
-		// `normal_vector`.
-		for(size_t slice = 0u; slice < dims[norm]; slice++)
+		// `normal_vector`. Iterate one more time for the "cap".
+		for(size_t slice = 0u; slice <= dims[norm]; slice++)
 		{
 			// A 'voxel cursor' used to sample the 'slice' in the correct euclidean
 			// plane.
