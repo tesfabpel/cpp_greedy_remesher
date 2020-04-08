@@ -34,7 +34,7 @@ greedy_remesher(const glm::uvec3 &dims,
 
 		// The normal vector3, as a number triple (ideally you would replace this
 		// with a THREE.Vector3 or something).
-		glm::ivec3 normalVector;
+		glm::ivec3 normalVector(0);
 		normalVector[norm] = 1;
 
 		// Explained below.
@@ -46,7 +46,7 @@ greedy_remesher(const glm::uvec3 &dims,
 		{
 			// A 'voxel cursor' used to sample the 'slice' in the correct euclidean
 			// plane.
-			glm::uvec3 cursor;
+			glm::uvec3 cursor(0);
 			cursor[norm] = slice;
 
 			// Compute the 2D mask of which voxels need to be tessellated.
@@ -108,17 +108,17 @@ greedy_remesher(const glm::uvec3 &dims,
 
 				done_quad:
 					// The base of the quad to add
-					glm::ivec3 b;
+					glm::ivec3 b(0);
 					b[norm] = slice;
 					b[tan] = x;
 					b[biTan] = y;
 
 					// The 'width' of the quad.
-					glm::ivec3 du;
+					glm::ivec3 du(0);
 					du[tan] = width;
 
 					// The 'height' of the quad.
-					glm::ivec3 dv;
+					glm::ivec3 dv(0);
 					dv[biTan] = height;
 
 					quads.push_back({
